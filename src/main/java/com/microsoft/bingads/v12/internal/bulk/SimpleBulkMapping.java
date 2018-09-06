@@ -29,7 +29,7 @@ public class SimpleBulkMapping<TEntity, TProperty> extends SingleFieldBulkMappin
      * @param csvToField Function to set the value from CSV on an entity
      */
     public SimpleBulkMapping(String csvHeader, Function<TEntity, TProperty> fieldToCsv, BiConsumer<String, TEntity> csvToField) {
-        this(csvHeader, fieldToCsv, csvToField, false);
+        this(csvHeader, fieldToCsv, csvToField, true);
     }
 
     @Override
