@@ -100,7 +100,7 @@ public class BulkAdGroupDeviceCriterion extends SingleRecordBulkEntity {
                 new BiConsumer<String, BulkAdGroupDeviceCriterion>() {
                     @Override
                     public void accept(String v, BulkAdGroupDeviceCriterion c) {
-                        c.getBiddableAdGroupCriterion().setAdGroupId(Long.parseLong(v));
+                        c.getBiddableAdGroupCriterion().setAdGroupId(v.equals("")? null: Long.parseLong(v));
                     }
                 }
         ));
