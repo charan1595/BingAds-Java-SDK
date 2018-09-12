@@ -102,7 +102,12 @@ public class BulkAdGroupDayTimeCriterion extends SingleRecordBulkEntity {
                 new BiConsumer<String, BulkAdGroupDayTimeCriterion>() {
                     @Override
                     public void accept(String v, BulkAdGroupDayTimeCriterion c) {
-                        c.getBiddableAdGroupCriterion().setAdGroupId(Long.parseLong(v));
+                        c.getBiddableAdGroupCriterion().setAdGroupId(StringExtensions.parseOptional(v, new Function<String, Long>() {
+                            @Override
+                            public Long apply(String value) {
+                                return Long.parseLong(value);
+                            }
+                        }));
                     }
                 }
         ));
